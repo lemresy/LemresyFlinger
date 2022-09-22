@@ -1,17 +1,7 @@
 
 local Prefix = ";"
-local Duration = 150
---[[
-Commands:
-;targetname - flings the target, just use the prefix and name
-;sp - teleports to spawnlocation
-;fixcam - fixes camera
-you can always rerun the script anytime, its not gonna glitch out
-]]
---[[
-todo:
+local Duration = 50
 
-]]
 local function Message(Text)
 	warn(Text)
 	game.StarterGui:SetCore("ChatMakeSystemMessage", {
@@ -80,7 +70,7 @@ local function Fling(TargetName)
 			Message("Failed to fling."); Stop = true
 			break
 		end
-		task.wait(0.02)
+		task.wait(0.01)
 	end
 	while Stop == true do
 		task.spawn(function()
@@ -106,13 +96,13 @@ shared.ChatEvent = Plr.Chatted:Connect(function(Message)
 	if string.match(Message, Prefix) then
 		local NewMessage = string.split(Message, Prefix)
 		for _,v in pairs(game:GetService("Players"):GetChildren()) do
-			if (string.match(string.lower(v.Name), string.lower(NewMessage[2])) or string.find(string.lower(v.DisplayName), string.lower(NewMessage[2]))) and NewMessage[2] ~= "back" and NewMessage[2] ~= "fixcam" then
+			if (string.match(string.lower(v.Name), string.lower(NewMessage[2])) or string.find(string.lower(v.DisplayName), string.lower(NewMessage[2]))) and NewMessage[2] ~= "sp" and NewMessage[2] ~= "fixcam" then
 				task.spawn(function()
 					if Running == false then Fling(v.Name) end
 				end)
 			end
 		end
-		if NewMessage[2] == "back" then
+		if NewMessage[2] == "sp" then
 			local Character = Plr["Character"] or Plr["CharacterAdded"]:Wait()
 			local Root = Character:WaitForChild("HumanoidRootPart")
 			for i = 0,3 do
