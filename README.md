@@ -16,6 +16,8 @@ A powerful universal flinger for most of games.
   - ;sp / Teleports you to spawnlocation, if spawnlocation isn't present it will teleport you somewhere else
   - ;fixcam / Just in case your camera glitches, you can enter the command and get your camera fixed
  
+# Loadstring
+  `loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/lemresy/LemresyFlinger/main/Main.lua"))()`
 # Info
 
   - Some games might not have collisions, causing the script to not work
