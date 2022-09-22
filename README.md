@@ -10,8 +10,8 @@ A powerful universal flinger for most of games.
 
 
 # Commands:
-  - Prefix = ; (can be changed by editing source)
-  - You need to run the commands from chat.
+  Prefix = ; (can be changed by editing source).
+  You need to run the commands from chat.
   
   - ;TargetName / Flings the player (will not 100% time work all time)
   - ;sp / Teleports you to spawnlocation, if spawnlocation isn't present it will teleport you somewhere else
